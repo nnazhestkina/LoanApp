@@ -1,0 +1,105 @@
+﻿@model X.PagedList.IPagedList<Loan.Models.LoanApplicationsModel>
+@using X.PagedList.Mvc.Core
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Loan Applications";
+    var pagedList = (X.PagedList.IPagedList)ViewBag.PageList;
+}
+
+<h2>Loan Applications</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "LoanApplications", FormMethod.Get, new { id = "formLoan" }))
+{
+    <p>
+        Search by:
+
+
+        @Html.DropDownList("SearchBySelected", new SelectList(ViewBag.SearchBy, "Key", "Value"), ViewBag.SearchBySelected as string)
+        @Html.TextBox("SearchString", ViewBag.SearchString as string)
+
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Business Name
+        </th>
+        <th>
+            Ammount Requested
+        </th>
+        <th>
+            APR
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanAmmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.APR)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { loanId = item.ID, customerId = item.CustomerId, businessId = item.BusinessInfoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+
+                <a onclick='ConfirmDelete(@item.ID)' href="#">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
+
+@Html.PagedListPager(pagedList, page => Url.Action("Index", new { page }))
+
+
+@section Scripts {
+
+    <script>
+
+        function ConfirmDelete(id) {
+
+            var result = confirm("Do you want to delete?");
+            if (result) {
+                $.ajax({
+                    url: 'LoanApplications/Delete',
+                    data: { id: id }
+                }).done(function () {
+                    location.reload();
+                });
+            }
+        }
+
+    </script>
+}

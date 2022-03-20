@@ -1,0 +1,64 @@
+﻿
+@model Loan.Models.BusinessInfoModel
+@{
+    ViewData["Title"] = "BusnessInfo";
+}
+
+
+@using (Html.BeginForm("SaveBusinessInfo", "LoanApplications", FormMethod.Post, new { role = "form", id = "saveBusinessInfo" }))
+{
+
+    <div id="BusinessInfo">
+        <div class="form-horizontal">
+            <h4>Business Info</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.BusinessInfoId)
+            @Html.HiddenFor(model => model.LoanId)
+            @Html.HiddenFor(model => model.CustomerId)
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BusinessName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BusinessName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BusinessName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BusinessPhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BusinessPhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BusinessPhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div style="display:none">   @Html.TextBox("BusinessInfoNextBack", "")</div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input id="btnBackBusinessInfo" type="button" value="Back" />&nbsp;
+                    <input id="btnNextBusinessInfo" type="button" value="Next" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+}

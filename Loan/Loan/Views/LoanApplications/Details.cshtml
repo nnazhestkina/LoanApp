@@ -1,0 +1,77 @@
+﻿@model Loan.Models.LoanModel
+
+@{
+    ViewData["Title"] = "Loan Details";
+}
+
+<h2>Loan Application Details</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div id="BusinessInfo">
+        <div class="form-horizontal">
+            <h4>Personal Info</h4>
+            <hr />
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Customer.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@Model.Customer.FirstName</span>
+                <br />
+                @Html.LabelFor(model => model.Customer.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@Model.Customer.LastName</span> <br />
+
+                @Html.LabelFor(model => model.Customer.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@Model.Customer.PhoneNumber</span> <br />
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="BusinessInfo">
+        <div class="form-horizontal">
+            <h4>Business Info</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.BusinessInfo.BusinessName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@Model.BusinessInfo.BusinessName</span><br />
+                @Html.LabelFor(model => model.BusinessInfo.BusinessPhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@Model.BusinessInfo.BusinessPhoneNumber</span><br />
+                @Html.LabelFor(model => model.BusinessInfo.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@Model.BusinessInfo.Address</span><br />
+                @Html.LabelFor(model => model.BusinessInfo.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@Model.BusinessInfo.City</span><br />
+
+            </div>
+        </div>
+    </div>
+
+    <div id="LoanApplication">
+        <div class="form-horizontal">
+            <h4>Loan Application</h4>
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumberOfDefaults, htmlAttributes: new { @class = "control-label col-md-3" })
+                <span>@Model.NumberOfDefaults</span><br />
+                @Html.LabelFor(model => model.PaybackMonths, htmlAttributes: new { @class = "control-label col-md-3" })
+                <span>@Model.PaybackMonths</span><br />
+                @Html.LabelFor(model => model.RiskRating, htmlAttributes: new { @class = "control-label col-md-3" })
+                <span>@Model.RiskRating</span><br />
+                @Html.LabelFor(model => model.TotalOutstandingDebt, htmlAttributes: new { @class = "control-label col-md-3" })
+                <span>@Model.TotalOutstandingDebt</span>
+            </div>
+
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+

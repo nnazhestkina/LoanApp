@@ -1,0 +1,11 @@
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\BusinessModels.deps.json
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\BusinessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\ref\BusinessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\BusinessModels.pdb
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BusinessModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BusinessModels.AssemblyInfoInputs.cache
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BusinessModels.AssemblyInfo.cs
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BusinessModels.csproj.CoreCompileInputs.cache
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BusinessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\ref\BusinessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BusinessModels.pdb

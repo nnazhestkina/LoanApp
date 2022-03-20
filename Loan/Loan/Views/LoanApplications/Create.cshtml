@@ -1,0 +1,90 @@
+﻿@model Loan.Models.LoanModel
+
+@{
+    ViewData["Title"] = "Loan";
+}
+<h2>Loan Application</h2>
+
+<h4 style="color:red">@ViewBag.ErrorMessage</h4>
+
+
+<div class="content-details" id="divCustomer" style="display:@ViewBag.DisplayCustomer">
+        @await Html.PartialAsync("~/Views/LoanApplications/_Customer.cshtml", Model.Customer)
+    </div>
+
+    <div class="content-details" id="divBusinessInfo" style="display:@ViewBag.DisplayBusinessInfo">
+        @await Html.PartialAsync("~/Views/LoanApplications/_BusinessInfo.cshtml", Model.BusinessInfo)
+    </div>
+
+    <div class="content-details" id="divLoan" style="display:@ViewBag.DisplayLoan">
+        @await Html.PartialAsync("~/Views/LoanApplications/_Loan.cshtml", Model)
+    </div>
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section Scripts
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+      
+
+        $('#btnNextBusinessInfo').click(function (e) {
+
+            if ($('#saveBusinessInfo').valid()) {
+                $("#BusinessInfoNextBack").val("next");
+
+                $('#saveBusinessInfo').submit();
+            }
+        });
+
+        $('#btnBackBusinessInfo').click(function (e) {
+
+            if ($('#saveBusinessInfo').valid()) {
+                $("#BusinessInfoNextBack").val("back");
+                $('#saveBusinessInfo').submit();
+            } else {
+
+                var result = confirm("Do you want to save data?");
+                if (result) {
+                    $("#BusinessInfoNextBack").val("back");
+                    $('#saveBusinessInfo').submit();
+
+                } else {
+                    $('#divCustomer').show();
+                    $('#divBusinessInfo').hide();
+                    $('#divLoan').hide();
+                }
+            }
+
+        });
+
+        $('#btnBackLoan').click(function (e) {
+
+            if ($('#saveLoan').valid()) {
+                $("#LoanNextBack").val("back");
+                $('#saveLoan').submit();
+            } else {
+                var result = confirm("Do you want to save data?");
+                if (result) {
+                    $("#LoanNextBack").val("back");
+                    $('#saveLoan').submit();
+                } else {
+                    $('#divCustomer').hide();
+                    $('#divBusinessInfo').show();
+                    $('#divLoan').hide();
+                }
+            }
+        });
+
+        
+    </script>
+}
+
+
+

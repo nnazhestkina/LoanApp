@@ -1,0 +1,12 @@
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\BisunessModels.deps.json
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\BisunessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\ref\BisunessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\bin\Debug\net5.0\BisunessModels.pdb
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BisunessModels.csproj.AssemblyReference.cache
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BisunessModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BisunessModels.AssemblyInfoInputs.cache
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BisunessModels.AssemblyInfo.cs
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BisunessModels.csproj.CoreCompileInputs.cache
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BisunessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\ref\BisunessModels.dll
+C:\Personal\Learn\loan\Loan\BisunessModels\obj\Debug\net5.0\BisunessModels.pdb
