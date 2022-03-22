@@ -46,38 +46,13 @@ namespace Loan.Controllers
             var models = Mapper.Map(modelList);
 
            
-            X.PagedList.IPagedList<LoanApplicationsModel> pagedModel =null;
-
-            if(string.IsNullOrWhiteSpace(searchString))
-                pagedModel = models.AsQueryable().ToPagedList(page, Utilities.PAGE_SIZE);
-            else
-                pagedModel = models.AsQueryable().ToPagedList();
+            X.PagedList.IPagedList<LoanApplicationsModel> pagedModel = models.AsQueryable().ToPagedList(page, Utilities.PAGE_SIZE);
 
             ViewBag.SearchBy = Utilities.GetSearchBy();
-            ViewBag.PageList = pagedModel;
+           
             return View(pagedModel);
         }
 
-        protected IPagedList<string> GetPagedNames(int? page)
-        {
-            // return a 404 if user browses to before the first page
-            if (page.HasValue && page < 1)
-                return null;
-
-            // retrieve list from database/wherever
-            var listUnpaged = new List<string> { "a", "b", "c", "d", "e", "aa", "bb", "cc", "dd", "ee", "aaa", "bbb", "ccc", "ddd", "eee", "fff", "ggg", "1", "s", "f", "sd", "dsfds" };
-
-            // page the list
-            const int pageSize = 10;
-            var listPaged = listUnpaged.ToPagedList(page ?? 1, pageSize);
-
-            // return a 404 if user browses to pages beyond last page. special case first page if no items exist
-            if (listPaged.PageNumber != 1 && page.HasValue && page > listPaged.PageCount)
-                return null;
-
-
-            return listPaged;
-        }
 
         // GET: LoanApplicationsController/Details/5
         public ActionResult Details(int id)
@@ -196,7 +171,7 @@ namespace Loan.Controllers
                 }
 
                 LoanModel loanModel = null;
-                model.IsDraft = loanNextBack == Utilities.NextBack.back.ToString();
+                model.IsDraft = false;//loanNextBack == Utilities.NextBack.back.ToString();
 
                 if (model.LoanId > 0)
                 {

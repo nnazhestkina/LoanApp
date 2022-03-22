@@ -4,7 +4,7 @@
 
 @{
     ViewBag.Title = "Loan Applications";
-    var pagedList = (X.PagedList.IPagedList)ViewBag.PageList;
+
 }
 
 <h2>Loan Applications</h2>
@@ -23,7 +23,7 @@
 
         <input type="submit" value="Search" />
     </p>
-}
+
 
 
 <table class="table">
@@ -76,13 +76,10 @@
 
 </table>
 <br />
-@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
 
-@Html.PagedListPager(pagedList, page => Url.Action("Index", new { page }))
-
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchBySelected = ViewBag.SearchBySelected, searchString = ViewBag.SearchString }))
+}
 
 @section Scripts {
 
